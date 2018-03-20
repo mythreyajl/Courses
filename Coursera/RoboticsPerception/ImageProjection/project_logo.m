@@ -6,6 +6,10 @@
 % Note: You don't have to change this script for the assignment, but you
 % can if you'd like to change the images or other parameters
 
+clear all;
+close all;
+clc;
+
 % Load logo image. Replace with your image as desired.
 logo_img = imread('images/logos/penn_engineering_logo.png');
 % Generate logo points (they are just the outer corners of the image)
@@ -30,6 +34,7 @@ projected_imgs = cell(num_test, 1);
 
 % Process all the images
 for i=1:num_test
+    i
     % Read the next video frame
     video_imgs{i} = imread(sprintf('images/barcaReal/BarcaReal%03d.jpg', i));
     
@@ -49,3 +54,5 @@ for i=1:num_test
         interior_pts,...
         warped_logo_pts); 
 end
+
+play_video(projected_imgs,60);
